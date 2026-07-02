@@ -1,0 +1,1 @@
+This folder contains static assets like images, logos, and favicons. Place your logo files here (e.g., logo.png, logo.svg) and reference them in your code using /logo.png.
