@@ -186,9 +186,8 @@ const WaitlistPage = () => {
 
       <header className="relative z-10 px-6 py-8">
         <nav className="max-w-7xl mx-auto flex items-center justify-between">
-          <a href="/" className="flex items-center gap-3">
-            <img src="/PayCraft_logo.svg" alt="AstraPort Logo" className="w-10 h-10 object-contain" />
-            <span className="text-2xl font-bold text-white">AstraPort</span>
+          <a href="/" className="flex items-center">
+            <img src="/AstraPort_logo.svg" alt="AstraPort Logo" className="w-64 h-16 object-contain" />
           </a>
           <div className="flex items-center gap-4">
             <span className="text-slate-400 text-sm hidden sm:block">{stats.totalWaitlisted} already joined</span>
