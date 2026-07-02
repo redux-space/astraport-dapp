@@ -142,11 +142,11 @@ const WaitlistPage = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h1 className="text-4xl font-bold text-white mb-4">You're on the list!</h1>
-          <p className="text-xl text-slate-300 mb-8">
-            {formData.isPremium
-              ? "Congratulations! You've secured a premium spot. Check your email for next steps."
-              : "Thanks for joining the waitlist. We'll notify you when it's your turn to access AstraPort."}
+          <h1 className="text-4xl font-bold text-white mb-4">You&apos;re on the list!</h1>
+            <p className="text-xl text-slate-300 mb-8">
+              {formData.isPremium
+                ? "Congratulations! You&apos;ve secured a premium spot. Check your email for next steps."
+                : "Thanks for joining the waitlist. We'll notify you when it&apos;s your turn to access AstraPort."}
           </p>
           <div className="bg-slate-800/50 backdrop-blur rounded-2xl p-6 border border-slate-700">
             <p className="text-slate-400 mb-2">Your registration details</p>
@@ -215,7 +215,7 @@ const WaitlistPage = () => {
             <span className="bg-gradient-to-r from-stellar-400 to-cyan-300 bg-clip-text text-transparent">DeFi Portfolio Management</span>
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Secure your spot in AstraPort's private beta. Choose standard access or upgrade to premium for exclusive benefits and early privileges.
+            Secure your spot in AstraPort&apos;s private beta. Choose standard access or upgrade to premium for exclusive benefits and early privileges.
           </p>
         </div>
 
