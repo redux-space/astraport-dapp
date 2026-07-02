@@ -80,7 +80,6 @@ const WaitlistPage = () => {
       return;
     }
     setCheckingUsername(true);
-    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 800));
     const available = !['admin', 'astraport', 'founder', 'ceo'].includes(username.toLowerCase());
     setUsernameAvailable(available);
@@ -116,7 +115,6 @@ const WaitlistPage = () => {
     }
 
     setIsSubmitting(true);
-    // Simulate API submission
     await new Promise((resolve) => setTimeout(resolve, 1500));
     setIsSubmitting(false);
     setIsSubmitted(true);
@@ -135,18 +133,18 @@ const WaitlistPage = () => {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-stellar-900 flex items-center justify-center px-4">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center px-4">
         <div className="max-w-lg w-full text-center">
           <div className="w-24 h-24 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-8 animate-pulse">
             <svg className="w-12 h-12 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h1 className="text-4xl font-bold text-white mb-4">You&apos;re on the list!</h1>
-            <p className="text-xl text-slate-300 mb-8">
-              {formData.isPremium
-                ? "Congratulations! You&apos;ve secured a premium spot. Check your email for next steps."
-                : "Thanks for joining the waitlist. We'll notify you when it&apos;s your turn to access AstraPort."}
+          <h1 className="text-4xl font-bold text-white mb-4">You are on the list!</h1>
+          <p className="text-xl text-slate-300 mb-8">
+            {formData.isPremium
+              ? "Congratulations! You have secured a premium spot. Check your email for next steps."
+              : "Thanks for joining the waitlist. We&apos;ll notify you when it&apos;s your turn to access AstraPort."}
           </p>
           <div className="bg-slate-800/50 backdrop-blur rounded-2xl p-6 border border-slate-700">
             <p className="text-slate-400 mb-2">Your registration details</p>
@@ -161,7 +159,7 @@ const WaitlistPage = () => {
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-500">Status</span>
-                <span className={formData.isPremium ? 'text-amber-400' : 'text-stellar-400'}>
+                <span className={formData.isPremium ? 'text-amber-400' : 'text-blue-400'}>
                   {formData.isPremium ? '⭐ Premium Member' : 'Standard Member'}
                 </span>
               </div>
@@ -169,7 +167,7 @@ const WaitlistPage = () => {
           </div>
           <a
             href="/"
-            className="inline-block mt-8 px-8 py-4 bg-stellar-600 hover:bg-stellar-500 text-white font-semibold rounded-xl transition-all duration-300"
+            className="inline-block mt-8 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition-all duration-300"
           >
             Return to Home
           </a>
@@ -179,19 +177,17 @@ const WaitlistPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-stellar-900">
-      {/* Animated Background */}
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-stellar-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-stellar-600/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-3xl"></div>
       </div>
 
-      {/* Header */}
       <header className="relative z-10 px-6 py-8">
         <nav className="max-w-7xl mx-auto flex items-center justify-between">
           <a href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-stellar-400 to-stellar-600 rounded-xl flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center">
               <span className="text-white font-bold text-xl">A</span>
             </div>
             <span className="text-2xl font-bold text-white">AstraPort</span>
@@ -202,17 +198,16 @@ const WaitlistPage = () => {
         </nav>
       </header>
 
-      {/* Hero Section */}
       <main className="relative z-10 max-w-7xl mx-auto px-6 pb-20">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-stellar-500/10 border border-stellar-500/30 rounded-full text-stellar-300 text-sm mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-300 text-sm mb-6">
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
             Live waitlist • {stats.premiumSpots - stats.premiumTaken} premium spots remaining
           </div>
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
             Join the Future of
             <br />
-            <span className="bg-gradient-to-r from-stellar-400 to-cyan-300 bg-clip-text text-transparent">DeFi Portfolio Management</span>
+            <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">DeFi Portfolio Management</span>
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Secure your spot in AstraPort&apos;s private beta. Choose standard access or upgrade to premium for exclusive benefits and early privileges.
@@ -220,13 +215,11 @@ const WaitlistPage = () => {
         </div>
 
         <div className="grid lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
-          {/* Waitlist Form */}
           <div className="lg:col-span-2">
             <div className="bg-slate-800/60 backdrop-blur-xl rounded-3xl p-8 border border-slate-700/50 shadow-2xl sticky top-8">
               <h2 className="text-2xl font-bold text-white mb-6">Reserve Your Spot</h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Email Field */}
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
                     Email Address
@@ -238,12 +231,11 @@ const WaitlistPage = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="you@example.com"
-                    className={`w-full px-4 py-4 bg-slate-900/50 border rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-stellar-500/50 transition-all ${errors.email ? 'border-red-500' : 'border-slate-600'}`}
+                    className={`w-full px-4 py-4 bg-slate-900/50 border rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all ${errors.email ? 'border-red-500' : 'border-slate-600'}`}
                   />
                   {errors.email && <p className="mt-2 text-sm text-red-400">{errors.email}</p>}
                 </div>
 
-                {/* Username Field */}
                 <div>
                   <label htmlFor="username" className="block text-sm font-medium text-slate-300 mb-2">
                     Choose Username
@@ -257,7 +249,7 @@ const WaitlistPage = () => {
                       value={formData.username}
                       onChange={handleUsernameChange}
                       placeholder="username"
-                      className={`w-full pl-8 pr-12 py-4 bg-slate-900/50 border rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-stellar-500/50 transition-all ${errors.username ? 'border-red-500' : 'border-slate-600'}`}
+                      className={`w-full pl-8 pr-12 py-4 bg-slate-900/50 border rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all ${errors.username ? 'border-red-500' : 'border-slate-600'}`}
                     />
                     {checkingUsername && (
                       <div className="absolute right-4 top-1/2 -translate-y-1/2">
@@ -282,7 +274,6 @@ const WaitlistPage = () => {
                   {errors.username && <p className="mt-2 text-sm text-red-400">{errors.username}</p>}
                 </div>
 
-                {/* Premium Toggle */}
                 <div className="relative">
                   <div
                     onClick={() => setFormData({ ...formData, isPremium: !formData.isPremium })}
@@ -322,11 +313,10 @@ const WaitlistPage = () => {
                   </div>
                 </div>
 
-                {/* Submit Button */}
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full py-4 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-2 ${formData.isPremium ? 'bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-black shadow-lg shadow-amber-500/25' : 'bg-gradient-to-r from-stellar-500 to-cyan-500 hover:from-stellar-400 hover:to-cyan-400 text-white shadow-lg shadow-stellar-500/25'} ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                  className={`w-full py-4 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-2 ${formData.isPremium ? 'bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-black shadow-lg shadow-amber-500/25' : 'bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-400 hover:to-cyan-400 text-white shadow-lg shadow-blue-500/25'} ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                 >
                   {isSubmitting ? (
                     <>
@@ -345,14 +335,12 @@ const WaitlistPage = () => {
             </div>
           </div>
 
-          {/* Premium Features */}
           <div className="lg:col-span-3">
             <div className="grid sm:grid-cols-2 gap-4">
               {premiumFeatures.map((feature, index) => (
                 <div
                   key={index}
                   className="group bg-slate-800/40 backdrop-blur rounded-2xl p-6 border border-slate-700/30 hover:border-amber-500/30 hover:bg-slate-800/60 transition-all duration-300"
-                  style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="w-14 h-14 bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-2xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
                     {feature.icon}
@@ -363,7 +351,6 @@ const WaitlistPage = () => {
               ))}
             </div>
 
-            {/* Stats Bar */}
             <div className="mt-8 grid grid-cols-3 gap-4">
               <div className="bg-slate-800/40 backdrop-blur rounded-2xl p-6 border border-slate-700/30 text-center">
                 <p className="text-3xl font-bold text-white">{stats.totalWaitlisted}</p>
@@ -379,7 +366,6 @@ const WaitlistPage = () => {
               </div>
             </div>
 
-            {/* Trust Badges */}
             <div className="mt-8 bg-slate-800/40 backdrop-blur rounded-2xl p-6 border border-slate-700/30">
               <p className="text-center text-slate-400 text-sm mb-4">Trusted by early adopters from</p>
               <div className="flex flex-wrap items-center justify-center gap-8 opacity-60">
@@ -393,7 +379,6 @@ const WaitlistPage = () => {
         </div>
       </main>
 
-      {/* Footer */}
       <footer className="relative z-10 border-t border-slate-800/50 mt-20">
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
