@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import ThemeToggle from '../../components/ThemeToggle';
 
 interface WaitlistFormData {
   email: string;
@@ -179,17 +180,19 @@ const WaitlistPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-3xl"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-stellar-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-stellar-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-stellar-600/5 rounded-full blur-3xl"></div>
       </div>
 
       <header className="relative z-10 px-6 py-8">
         <nav className="max-w-7xl mx-auto flex items-center justify-between">
           <a href="/" className="flex items-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/AstraPort_logo.svg" alt="AstraPort Logo" className="w-64 h-16 object-contain" />
           </a>
           <div className="flex items-center gap-4">
+            <ThemeToggle />
             <span className="text-slate-400 text-sm hidden sm:block">{stats.totalWaitlisted} already joined</span>
           </div>
         </nav>
@@ -197,14 +200,14 @@ const WaitlistPage = () => {
 
       <main className="relative z-10 max-w-7xl mx-auto px-6 pb-20">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-300 text-sm mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-stellar-500/10 border border-stellar-500/30 rounded-full text-stellar-300 text-sm mb-6">
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
             Live waitlist • {stats.premiumSpots - stats.premiumTaken} premium spots remaining
           </div>
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
             Join the Future of
             <br />
-            <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">DeFi Portfolio Management</span>
+            <span className="bg-gradient-to-r from-stellar-400 to-stellar-300 bg-clip-text text-transparent">DeFi Portfolio Management</span>
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Secure your spot in AstraPort&apos;s private beta. Choose standard access or upgrade to premium for exclusive benefits and early privileges.
@@ -313,8 +316,7 @@ const WaitlistPage = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full py-4 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-2 ${formData.isPremium ? 'bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-black shadow-lg shadow-amber-500/25' : 'bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-400 hover:to-cyan-400 text-white shadow-lg shadow-blue-500/25'} ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
-                >
+                  className={`w-full py-4 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-2 ${formData.isPremium ? 'bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-black shadow-lg shadow-amber-500/25' : 'bg-gradient-to-r from-stellar-500 to-stellar-400 hover:from-stellar-400 hover:to-stellar-300 text-white shadow-lg shadow-stellar-500/25'} ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}>
                   {isSubmitting ? (
                     <>
                       <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin"></div>

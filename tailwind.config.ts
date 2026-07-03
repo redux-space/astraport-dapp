@@ -14,11 +14,17 @@ const config: Config = {
       },
       colors: {
         stellar: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
+          50: '#e6f7f5',
+          100: '#b2eae5',
+          300: '#4cd9cc',
+          400: '#2dd0bf',
+          500: '#12C6B2', // Your teal brand color
+          600: '#0F2747', // Your dark navy brand color
+          700: '#0c1d36',
+        },
+        brand: {
+          navy: '#0F2747',
+          teal: '#12C6B2',
         },
       },
     },
