@@ -27,6 +27,32 @@ const config: Config = {
           teal: '#12C6B2',
         },
       },
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        'fade-in-up': {
+          '0%': { opacity: '0', transform: 'translateY(1rem)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-1rem)' },
+        },
+        'pulse-soft': {
+          '0%, 100%': { opacity: '0.3' },
+          '50%': { opacity: '0.5' },
+        },
+      },
+      animation: {
+        // `forwards` keeps elements at their end state (opacity 1) after the
+        // reveal, since they start from an `opacity-0` base class.
+        'fade-in': 'fade-in 0.6s ease-out forwards',
+        'fade-in-up': 'fade-in-up 0.6s ease-out forwards',
+        float: 'float 6s ease-in-out infinite',
+        'pulse-soft': 'pulse-soft 4s ease-in-out infinite',
+      },
     },
   },
   plugins: [],

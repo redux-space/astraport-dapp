@@ -26,3 +26,26 @@ h6 {
 button {
   @apply transition-colors duration-200;
 }
+
+/*
+ * Stagger utilities for the landing-page reveal animations. Tailwind's built-in
+ * `delay-*` classes set `transition-delay`, but the reveal uses CSS animations,
+ * so we set `animation-delay` here to offset each element's fade-in.
+ */
+@layer utilities {
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+  .delay-400 {
+    animation-delay: 400ms;
+  }
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+}
