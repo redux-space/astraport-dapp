@@ -2,40 +2,29 @@
 
 import React, { useState } from 'react';
 import { useWalletStore } from '@/store';
+import { ConnectWalletModal } from './ConnectWalletModal';
 
+/**
+ * Entry point for wallet connection. When disconnected it renders a button that
+ * opens the guided modal (network → wallet → connect). When connected it shows
+ * a compact account summary with a disconnect action.
+ */
 export const WalletConnect: React.FC = () => {
   const { connected, account, disconnect } = useWalletStore();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const handleConnect = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      // TODO: Implement actual wallet connection
-      // This would integrate with Freighter or other Stellar wallets
-      console.log('Connecting wallet...');
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Connection failed');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleDisconnect = () => {
-    disconnect();
-  };
+  const [modalOpen, setModalOpen] = useState(false);
 
   if (connected && account) {
     return (
       <div className="flex items-center gap-3">
         <div className="text-sm">
-          <p className="font-semibold">{account.publicKey.substring(0, 8)}...</p>
-          <p className="text-gray-500 text-xs">{account.network}</p>
+          <p className="font-semibold">{account.publicKey.substring(0, 8)}…</p>
+          <p className="text-xs text-gray-500">
+            {account.network === 'public' ? 'Mainnet' : 'Testnet'}
+          </p>
         </div>
         <button
-          onClick={handleDisconnect}
-          className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+          onClick={disconnect}
+          className="rounded-lg bg-red-500 px-4 py-2 text-white hover:bg-red-600"
         >
           Disconnect
         </button>
@@ -44,16 +33,15 @@ export const WalletConnect: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col gap-2">
-      {error && <p className="text-red-500 text-sm">{error}</p>}
+    <>
       <button
-        onClick={handleConnect}
-        disabled={loading}
-        className="px-4 py-2 bg-stellar-600 text-white rounded-lg hover:bg-stellar-700 disabled:opacity-50"
+        onClick={() => setModalOpen(true)}
+        className="rounded-lg bg-stellar-600 px-4 py-2 text-white hover:bg-stellar-700"
       >
-        {loading ? 'Connecting...' : 'Connect Wallet'}
+        Connect Wallet
       </button>
-    </div>
+      <ConnectWalletModal open={modalOpen} onClose={() => setModalOpen(false)} />
+    </>
   );
 };
 

@@ -8,7 +8,16 @@ module.exports = {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
   transform: {
-    '^.+\\.(ts|tsx)$': ['@swc/jest'],
+    '^.+\\.(ts|tsx|js|jsx)$': [
+      '@swc/jest',
+      {
+        jsc: {
+          transform: {
+            react: { runtime: 'automatic' },
+          },
+        },
+      },
+    ],
   },
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',

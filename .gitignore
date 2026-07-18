@@ -17,3 +17,7 @@ build/
 .pnp.*
 coverage/
 .turbo/
+
+# Local agent + tsc incremental cache
+.claude/
+tsconfig.tsbuildinfo

@@ -1,0 +1,114 @@
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 3.5s
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\cache\webpack\client-development\0.pack.gz'
+ ○ Compiling / ...
+ ✓ Compiled / in 9.3s (1144 modules)
+ GET / 200 in 9710ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 5.6s (1147 modules)
+ GET / 404 in 7037ms
+ GET /_next/static/chunks/main-app.js?v=1784390907465 404 in 419ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 405ms
+ GET /_next/static/chunks/app/not-found.js 404 in 397ms
+ GET / 200 in 1336ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 1487ms
+ GET /_next/static/chunks/main-app.js?v=1784390915624 404 in 1614ms
+ GET /_next/static/chunks/app/page.js 404 in 1199ms
+ GET /_next/static/chunks/app/not-found.js 404 in 974ms
+ GET /_next/static/chunks/_app-pages-browser_node_modules_creit_tech_stellar-wallets-kit_esm_mod_js.js 404 in 40ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\vendor-chunks\@kurkle.js'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/@kurkle' in C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server for build dependencies doesn't lead to expected result 'C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\vendor-chunks\@kurkle.js', but to 'Error: Can't resolve './vendor-chunks/@kurkle' in 'C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/@kurkle (expected C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\vendor-chunks\@kurkle.js)
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\webpack-runtime.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\app\page.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\app\page.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\entries.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\entries.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\plugins\next-types-plugin\index.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\plugins\next-types-plugin\index.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack-config.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack-config.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at resolve commonjs C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/react-chartjs-2' in C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server for build dependencies doesn't lead to expected result 'C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\vendor-chunks\react-chartjs-2.js', but to 'Error: Can't resolve './vendor-chunks/react-chartjs-2' in 'C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/react-chartjs-2 (expected C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\vendor-chunks\react-chartjs-2.js)
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\webpack-runtime.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\app\page.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\app\page.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\entries.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\entries.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\plugins\next-types-plugin\index.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\plugins\next-types-plugin\index.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack-config.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack-config.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at resolve commonjs C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/chart.js' in C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server for build dependencies doesn't lead to expected result 'C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\vendor-chunks\chart.js.js', but to 'Error: Can't resolve './vendor-chunks/chart.js' in 'C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/chart.js (expected C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\vendor-chunks\chart.js.js)
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\webpack-runtime.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\app\page.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\app\page.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\entries.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\entries.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\plugins\next-types-plugin\index.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\plugins\next-types-plugin\index.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack-config.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack-config.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at resolve commonjs C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/zustand' in C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server for build dependencies doesn't lead to expected result 'C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\vendor-chunks\zustand.js', but to 'Error: Can't resolve './vendor-chunks/zustand' in 'C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/zustand (expected C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\vendor-chunks\zustand.js)
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\webpack-runtime.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\app\page.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\.next\server\app\page.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\entries.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\entries.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\plugins\next-types-plugin\index.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\plugins\next-types-plugin\index.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack-config.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack-config.js
+<w>  at file dependencies C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at resolve commonjs C:\Users\u-adamu\Desktop\wave\astraport-dapp\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js

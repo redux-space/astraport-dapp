@@ -27,88 +27,25 @@ button {
   @apply transition-colors duration-200;
 }
 
-/* ------------------------------------------------------------------ *
- * Landing page motion system
- * The landing markup uses opacity-0 + animate-* classes to reveal
- * content. These keyframes drive that reveal. animation-fill-mode is
- * "both" so elements hold their final (visible) state and are never
- * left stuck at opacity-0.
- * ------------------------------------------------------------------ */
+/*
+ * Stagger utilities for the landing-page reveal animations. Tailwind's built-in
+ * `delay-*` classes set `transition-delay`, but the reveal uses CSS animations,
+ * so we set `animation-delay` here to offset each element's fade-in.
+ */
 @layer utilities {
-  .animate-fade-in {
-    opacity: 0;
-    animation: fade-in 0.8s ease-out forwards;
+  .delay-100 {
+    animation-delay: 100ms;
   }
-
-  .animate-fade-in-up {
-    opacity: 0;
-    animation: fade-in-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  .delay-200 {
+    animation-delay: 200ms;
   }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
+  .delay-300 {
+    animation-delay: 300ms;
   }
-
-  .animate-pulse-soft {
-    animation: pulse-soft 7s ease-in-out infinite;
+  .delay-400 {
+    animation-delay: 400ms;
   }
-
-  .animate-gradient {
-    background-size: 200% 200%;
-    animation: gradient-shift 8s ease infinite;
-  }
-
-  /* Reveal delays used across the hero / feature grid */
-  .delay-100 { animation-delay: 0.1s; }
-  .delay-200 { animation-delay: 0.2s; }
-  .delay-300 { animation-delay: 0.3s; }
-  .delay-400 { animation-delay: 0.4s; }
-  .delay-500 { animation-delay: 0.5s; }
-  .delay-700 { animation-delay: 0.7s; }
-}
-
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-18px); }
-}
-
-@keyframes pulse-soft {
-  0%, 100% { opacity: 0.25; transform: scale(1); }
-  50% { opacity: 0.45; transform: scale(1.08); }
-}
-
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Accessibility: users who prefer reduced motion get content instantly,
- * fully visible, with no transforms or looping animation. */
-@media (prefers-reduced-motion: reduce) {
-  .animate-fade-in,
-  .animate-fade-in-up,
-  .animate-float,
-  .animate-pulse-soft,
-  .animate-gradient {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
+  .delay-500 {
+    animation-delay: 500ms;
   }
 }
