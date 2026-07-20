@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import WalletConnect from '@/components/wallet/WalletConnect';
 import ThemeToggle from '../components/ThemeToggle';
 import AnimatedLogo from '@/components/AnimatedLogo';
@@ -8,10 +8,21 @@ import PortfolioOverview from '@/components/dashboard/PortfolioOverview';
 import PortfolioChart from '@/components/dashboard/PortfolioChart';
 import RiskScoreDisplay from '@/components/risk/RiskScoreDisplay';
 import InsightsList from '@/components/insights/InsightsList';
+import {
+  AIRecommendationsDashboard,
+  AIAlertBell,
+  RecommendationDetails,
+} from '@/components/ai';
+import { useAIActions } from '@/hooks';
 import { useWalletStore } from '@/store';
+import type { AIRecommendation } from '@/types';
 
 export default function Home() {
   const { connected } = useWalletStore();
+  const { execute, executingActionId, resultFor } = useAIActions();
+  const [alertSelected, setAlertSelected] = useState<AIRecommendation | null>(
+    null,
+  );
 
   if (connected) {
     return (
@@ -33,6 +44,7 @@ export default function Home() {
                 </svg>
                 Rebalance
               </a>
+              <AIAlertBell onOpenRecommendation={setAlertSelected} />
               <ThemeToggle />
               <WalletConnect />
             </div>
@@ -62,8 +74,25 @@ export default function Home() {
             <section>
               <InsightsList />
             </section>
+
+            {/* AI Analysis Results Dashboard */}
+            <section>
+              <AIRecommendationsDashboard />
+            </section>
           </div>
         </div>
+
+        {/* Details modal opened from the header alert bell */}
+        <RecommendationDetails
+          recommendation={alertSelected}
+          open={alertSelected !== null}
+          onClose={() => setAlertSelected(null)}
+          onExecute={execute}
+          executingActionId={
+            alertSelected ? executingActionId(alertSelected.id) : null
+          }
+          result={alertSelected ? resultFor(alertSelected.id) : undefined}
+        />
       </main>
     );
   }
