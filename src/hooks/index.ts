@@ -12,3 +12,7 @@ export {
   useStakingStats,
   useStakingData,
 } from './useStaking';
+export { useAIRecommendations } from './useAIRecommendations';
+export { useAIRealtime } from './useAIRealtime';
+export { useAIActions } from './useAIActions';
+export { useAISettings } from './useAISettings';

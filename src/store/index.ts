@@ -1,5 +1,13 @@
 import { create } from 'zustand';
-import { WalletAccount, Portfolio, RiskScore, AIInsight } from '@/types';
+import {
+  WalletAccount,
+  Portfolio,
+  RiskScore,
+  AIInsight,
+  AIRecommendation,
+  AITriggerPreferences,
+  ActionExecutionResult,
+} from '@/types';
 import {
   AllocationTarget,
   DryRunResult,
@@ -15,6 +23,7 @@ import {
   StakingStats,
 } from '@/types/staking';
 import { DEFAULT_SLIPPAGE_BPS } from '@/utils/rebalancing';
+import { AIAnalysisService } from '@/services/aiAnalysis';
 
 interface WalletState {
   connected: boolean;
@@ -58,6 +67,79 @@ export const useDashboardStore = create<DashboardState>((set) => ({
   setRiskScore: (score) => set({ riskScore: score }),
   setInsights: (insights) => set({ insights }),
   setSelectedAsset: (asset) => set({ selectedAsset: asset }),
+}));
+
+interface AIState {
+  recommendations: AIRecommendation[];
+  loading: boolean;
+  error: string | null;
+  settings: AITriggerPreferences;
+  wsConnected: boolean;
+  /** Per-recommendation id → the action id currently executing (or null). */
+  executing: Record<string, string | null>;
+  /** Per-recommendation id → the most recent action execution result. */
+  actionResults: Record<string, ActionExecutionResult>;
+  setRecommendations: (recommendations: AIRecommendation[]) => void;
+  /** Prepend a newly streamed recommendation (deduped by id). */
+  addRecommendation: (recommendation: AIRecommendation) => void;
+  setLoading: (loading: boolean) => void;
+  setError: (error: string | null) => void;
+  setWsConnected: (connected: boolean) => void;
+  markRead: (id: string) => void;
+  markAllRead: () => void;
+  setSettings: (settings: AITriggerPreferences) => void;
+  setExecuting: (id: string, actionId: string | null) => void;
+  setActionResult: (id: string, result: ActionExecutionResult) => void;
+}
+
+export const useAIStore = create<AIState>((set) => ({
+  recommendations: [],
+  loading: false,
+  error: null,
+  settings: AIAnalysisService.loadSettings(),
+  wsConnected: false,
+  executing: {},
+  actionResults: {},
+  setRecommendations: (recommendations) =>
+    set({
+      recommendations: [...recommendations].sort(
+        (a, b) => b.createdAt - a.createdAt,
+      ),
+    }),
+  addRecommendation: (recommendation) =>
+    set((state) => {
+      if (state.recommendations.some((r) => r.id === recommendation.id)) {
+        return state;
+      }
+      return {
+        recommendations: [recommendation, ...state.recommendations].sort(
+          (a, b) => b.createdAt - a.createdAt,
+        ),
+      };
+    }),
+  setLoading: (loading) => set({ loading }),
+  setError: (error) => set({ error }),
+  setWsConnected: (wsConnected) => set({ wsConnected }),
+  markRead: (id) =>
+    set((state) => ({
+      recommendations: state.recommendations.map((r) =>
+        r.id === id ? { ...r, read: true } : r,
+      ),
+    })),
+  markAllRead: () =>
+    set((state) => ({
+      recommendations: state.recommendations.map((r) => ({ ...r, read: true })),
+    })),
+  setSettings: (settings) => {
+    AIAnalysisService.saveSettings(settings);
+    set({ settings });
+  },
+  setExecuting: (id, actionId) =>
+    set((state) => ({ executing: { ...state.executing, [id]: actionId } })),
+  setActionResult: (id, result) =>
+    set((state) => ({
+      actionResults: { ...state.actionResults, [id]: result },
+    })),
 }));
 
 /** Wizard steps for the rebalancing planner. */
