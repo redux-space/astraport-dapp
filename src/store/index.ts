@@ -13,6 +13,15 @@ import {
   DryRunResult,
   RebalanceStrategy,
 } from '@/types/rebalancing';
+import {
+  StakingPortfolio,
+  StakedAsset,
+  OptimizationRecommendation,
+  StakingAssetInfo,
+  YieldProjection,
+  ComparisonData,
+  StakingStats,
+} from '@/types/staking';
 import { DEFAULT_SLIPPAGE_BPS } from '@/utils/rebalancing';
 import { AIAnalysisService } from '@/services/aiAnalysis';
 
@@ -182,4 +191,149 @@ export const useRebalanceStore = create<RebalanceState>((set) => ({
       dryRun: null,
       executed: false,
     }),
+}));
+
+// ─── Staking State ───────────────────────────────────────────────────────────
+
+interface StakingState {
+  /** Aggregated staking portfolio */
+  stakingPortfolio: StakingPortfolio | null;
+  /** List of available stakeable assets */
+  availableAssets: StakingAssetInfo[];
+  /** Optimization recommendations */
+  recommendations: OptimizationRecommendation[];
+  /** Active yield projection */
+  yieldProjection: YieldProjection | null;
+  /** Comparison data between current and recommended allocations */
+  comparisonData: ComparisonData | null;
+  /** Platform-wide staking statistics */
+  stakingStats: StakingStats | null;
+  /** Currently selected asset for detail view */
+  selectedAssetId: string | null;
+  /** Loading states per action */
+  loading: {
+    portfolio: boolean;
+    recommendations: boolean;
+    projection: boolean;
+    transaction: boolean;
+  };
+  /** Error messages per action */
+  errors: {
+    portfolio: string | null;
+    recommendations: string | null;
+    projection: string | null;
+    transaction: string | null;
+  };
+  /** Last fetch timestamp for caching */
+  lastFetched: number | null;
+
+  // Actions
+  setStakingPortfolio: (portfolio: StakingPortfolio) => void;
+  setAvailableAssets: (assets: StakingAssetInfo[]) => void;
+  setRecommendations: (recs: OptimizationRecommendation[]) => void;
+  setYieldProjection: (projection: YieldProjection | null) => void;
+  setComparisonData: (data: ComparisonData | null) => void;
+  setStakingStats: (stats: StakingStats) => void;
+  setSelectedAssetId: (id: string | null) => void;
+  updateStakedPosition: (assetId: string, updates: Partial<StakedAsset>) => void;
+  removeStakedPosition: (assetId: string) => void;
+  addStakedPosition: (position: StakedAsset) => void;
+  setLoading: (key: keyof StakingState['loading'], value: boolean) => void;
+  setError: (key: keyof StakingState['errors'], value: string | null) => void;
+  dismissRecommendation: (id: string) => void;
+  resetStaking: () => void;
+}
+
+const initialStakingState = {
+  stakingPortfolio: null,
+  availableAssets: [],
+  recommendations: [],
+  yieldProjection: null,
+  comparisonData: null,
+  stakingStats: null,
+  selectedAssetId: null,
+  loading: {
+    portfolio: false,
+    recommendations: false,
+    projection: false,
+    transaction: false,
+  },
+  errors: {
+    portfolio: null,
+    recommendations: null,
+    projection: null,
+    transaction: null,
+  },
+  lastFetched: null,
+};
+
+export const useStakingStore = create<StakingState>((set) => ({
+  ...initialStakingState,
+
+  setStakingPortfolio: (portfolio) =>
+    set({ stakingPortfolio: portfolio, lastFetched: Date.now() }),
+
+  setAvailableAssets: (assets) => set({ availableAssets: assets }),
+
+  setRecommendations: (recommendations) => set({ recommendations }),
+
+  setYieldProjection: (yieldProjection) => set({ yieldProjection }),
+
+  setComparisonData: (comparisonData) => set({ comparisonData }),
+
+  setStakingStats: (stakingStats) => set({ stakingStats }),
+
+  setSelectedAssetId: (selectedAssetId) => set({ selectedAssetId }),
+
+  updateStakedPosition: (assetId, updates) =>
+    set((state) => {
+      if (!state.stakingPortfolio) return state;
+      const positions = state.stakingPortfolio.positions.map((p) =>
+        p.id === assetId ? { ...p, ...updates } : p
+      );
+      return {
+        stakingPortfolio: {
+          ...state.stakingPortfolio,
+          positions,
+        },
+      };
+    }),
+
+  removeStakedPosition: (assetId) =>
+    set((state) => {
+      if (!state.stakingPortfolio) return state;
+      const positions = state.stakingPortfolio.positions.filter(
+        (p) => p.id !== assetId
+      );
+      return {
+        stakingPortfolio: {
+          ...state.stakingPortfolio,
+          positions,
+        },
+      };
+    }),
+
+  addStakedPosition: (position) =>
+    set((state) => {
+      if (!state.stakingPortfolio) return state;
+      return {
+        stakingPortfolio: {
+          ...state.stakingPortfolio,
+          positions: [...state.stakingPortfolio.positions, position],
+        },
+      };
+    }),
+
+  setLoading: (key, value) =>
+    set((state) => ({ loading: { ...state.loading, [key]: value } })),
+
+  setError: (key, value) =>
+    set((state) => ({ errors: { ...state.errors, [key]: value } })),
+
+  dismissRecommendation: (id) =>
+    set((state) => ({
+      recommendations: state.recommendations.filter((r) => r.id !== id),
+    })),
+
+  resetStaking: () => set(initialStakingState),
 }));

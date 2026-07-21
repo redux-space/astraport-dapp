@@ -67,4 +67,6 @@ export interface ChartDataPoint {
   value: number;
 }
 
+// Export staking types
+export * from './staking';
 export * from './ai';
