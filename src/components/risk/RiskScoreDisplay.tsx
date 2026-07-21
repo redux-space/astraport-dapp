@@ -9,6 +9,7 @@ export const RiskScoreDisplay: React.FC = () => {
   if (!riskScore) {
     return (
       <div className="bg-white p-6 rounded-lg shadow">
+        <h2 className="text-xl font-bold mb-4">Risk Assessment</h2>
         <p className="text-gray-500">No risk data available</p>
       </div>
     );
