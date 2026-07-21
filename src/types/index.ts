@@ -66,3 +66,6 @@ export interface ChartDataPoint {
   date: string;
   value: number;
 }
+
+// Export staking types
+export * from './staking';
