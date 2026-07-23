@@ -98,3 +98,32 @@ export const STRATEGY_META: Record<
       'Weighs cost against speed for a sensible default. Good when no single dimension dominates your priorities.',
   },
 };
+
+export type ScheduleFrequency = 'daily' | 'weekly' | 'monthly';
+
+export interface ScheduledRebalance {
+  id: string;
+  name: string;
+  frequency: ScheduleFrequency;
+  dayOfWeek?: number;
+  dayOfMonth?: number;
+  timeOfDay: string;
+  targets: AllocationTarget[];
+  strategy: RebalanceStrategy;
+  slippageBps: number;
+  enabled: boolean;
+  createdAt: number;
+  lastRunAt?: number;
+  nextRunAt?: number;
+}
+
+export interface CreateScheduledRebalanceRequest {
+  name: string;
+  frequency: ScheduleFrequency;
+  dayOfWeek?: number;
+  dayOfMonth?: number;
+  timeOfDay: string;
+  targets: AllocationTarget[];
+  strategy: RebalanceStrategy;
+  slippageBps: number;
+}
