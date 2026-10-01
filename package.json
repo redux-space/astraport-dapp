@@ -4,9 +4,9 @@
   "description": "AstraPort DApp - Frontend interface for Stellar wallet portfolio visualization and AI insights",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "node init && next dev",
+    "build": "node init && next build",
+    "start": "node init && next start",
     "lint": "next lint",
     "test": "jest",
     "test:watch": "jest --watch",
