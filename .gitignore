@@ -4,11 +4,9 @@ node_modules/
 dist/
 build/
 *.local
-.env.local
 .env.*.local
 .DS_Store
 .idea/
-.vscode/
 *.swp
 *.swo
 *~
@@ -21,3 +19,4 @@ coverage/
 # Local agent + tsc incremental cache
 .claude/
 tsconfig.tsbuildinfo
+config.bat
